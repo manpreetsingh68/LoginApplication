@@ -33,6 +33,10 @@ public class LoginServlet extends HttpServlet {
 		if(result) {
 			User user = service.getUserDetails(userId);
 			request.setAttribute("user", user);
+			/*
+			 * Request dispatcher is used to pass the same request to new page without sending a 
+			 * new request, so same session can be used between pages
+			 */
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 			//request.getSession().setAttribute("user", user);
