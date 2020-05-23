@@ -9,11 +9,11 @@
 <body>
 <h3>Login successful!</h3>
 
-<%
-User user = (User)request.getAttribute("user");
-%>
+<jsp:useBean id="user" class="com.loginapp.dto.User" scope="request">
+	<jsp:setProperty property="userName" name="user" value="newUser"/>
+</jsp:useBean>
 
-Hello <%= user.getUserName() %>! Your user ID is <%= user.getUserId() %>.
+Hello <jsp:getProperty property="userName" name="user"/> 
 
 </body>
 </html>
